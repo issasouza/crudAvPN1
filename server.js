@@ -4,7 +4,7 @@ const app = express();
 const ObjectId = require('mongodb-legacy').ObjectId
 const {MongoClient}= require('mongodb-legacy')
 const uri = "mongodb+srv://dbuser:dbuser@cluster0.vocyxsz.mongodb.net/?retryWrites=true&w=majority";
-//email educacional que a conta do mongo  foi criada
+
 const client = new MongoClient(uri);
 const db = client.db("teste-db");
 const collection = db.collection('crud');
@@ -32,12 +32,12 @@ db.collection('crud').insertOne(req.body,(err,result)=>{
 })
 })
 
-//renderizar e retornar o conteúdo do nosso banco
+//renderizar e retornar oa bd
 app.get('/', (req, res) => {
     let cursor = db.collection('crud').find()
 })
 
-//renderizar e retornar o conteúdo do nosso banco
+
 app.get('/show', (req, res) => {
     collection.find().toArray((err, results) => {
         if (err) return console.log(err)
